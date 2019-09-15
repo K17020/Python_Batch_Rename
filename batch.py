@@ -1,3 +1,6 @@
+# Batch rename
+# Kevin Tam - version 0.1
+
 import os
 
 def userPrompt():
@@ -8,24 +11,21 @@ def userPrompt():
         startFileNumber = input("What number would you like to start at?\n")
         file_number = int(startFileNumber)
 
-        renamedFile = "\n" + namePrompt + startFileNumber + fileExtensionPrompt + "\n"
-
-
+        renamedFile = namePrompt + startFileNumber + fileExtensionPrompt
 
         #confirmation if naming of the file is correct
-        print(renamedFile)
+        print("\n" + renamedFile + "\n")
         confirmation = input("Confirm if this is correct? Yes or No\n")
 
         if confirmation.lower() == "yes":
-            os.chdir("C:/Users/HTPC/Downloads/DBZ Season 3") #current working directory
+            os.chdir("path") #current working directory
             file_name = os.getcwd()
 
-            for files in os.listdir(str(file_name)):
-                print(files[1])
-
-
-        # renamed_file = os.rename(files, "Dragon Ball Z S02E0"+ str(file_number) + ".mkv")
-        # file_number += 1
+            for files in sorted(os.listdir(str(file_name))):
+                renamed_file = os.rename(files, namePrompt + str(file_number) + fileExtensionPrompt)
+                file_number += 1
+                print(file)
 
 if __name__ == '__main__':
     userPrompt()
+
