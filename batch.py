@@ -1,13 +1,31 @@
-# Batch rename 
-# Kevin Tam - version 0.1
-
 import os
 
-file_number = 1
+def userPrompt():
 
-os.chdir("name_of_directory") #current working directory
-file_name = os.getcwd()
+    while True:
+        namePrompt = input("What would you like to name the file?\n")
+        fileExtensionPrompt = input("What is the file extention?\n")
+        startFileNumber = input("What number would you like to start at?\n")
+        file_number = int(startFileNumber)
 
-for files in os.listdir(str(file_name)):
-    renamed_file = os.rename(files, "The_name_of_the_file"+ str(file_number) + ".txt")
-    file_number += 1
+        renamedFile = "\n" + namePrompt + startFileNumber + fileExtensionPrompt + "\n"
+
+
+
+        #confirmation if naming of the file is correct
+        print(renamedFile)
+        confirmation = input("Confirm if this is correct? Yes or No\n")
+
+        if confirmation.lower() == "yes":
+            os.chdir("C:/Users/HTPC/Downloads/DBZ Season 3") #current working directory
+            file_name = os.getcwd()
+
+            for files in os.listdir(str(file_name)):
+                print(files[1])
+
+
+        # renamed_file = os.rename(files, "Dragon Ball Z S02E0"+ str(file_number) + ".mkv")
+        # file_number += 1
+
+if __name__ == '__main__':
+    userPrompt()
