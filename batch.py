@@ -19,14 +19,14 @@ def userPrompt():
         confirmation = input("Confirm if this is correct? Yes or No\n")
 
         if confirmation.lower() == "yes":
-            os.chdir("path") #current working directory
+            os.chdir("C:/Users/HTPC/Downloads/Dragon Ball Z Season 4") #current working directory
             file_name = os.getcwd()
 
             for files in natsorted(os.listdir(str(file_name))):
                 renamed_file = os.rename(files, namePrompt + str(file_number) + fileExtensionPrompt)
+                print(files + "-->" + namePrompt + str(file_number) + fileExtensionPrompt)
                 file_number += 1
-                print(files)
+
 
 if __name__ == '__main__':
     userPrompt()
-
