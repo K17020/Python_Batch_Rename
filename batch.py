@@ -2,6 +2,7 @@
 # Kevin Tam - version 0.1
 
 import os
+from natsort import natsorted
 
 def userPrompt():
 
@@ -21,10 +22,10 @@ def userPrompt():
             os.chdir("path") #current working directory
             file_name = os.getcwd()
 
-            for files in sorted(os.listdir(str(file_name))):
+            for files in natsorted(os.listdir(str(file_name))):
                 renamed_file = os.rename(files, namePrompt + str(file_number) + fileExtensionPrompt)
                 file_number += 1
-                print(file)
+                print(files)
 
 if __name__ == '__main__':
     userPrompt()
