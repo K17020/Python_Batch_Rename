@@ -19,7 +19,7 @@ def userPrompt():
         confirmation = input("Confirm if this is correct? Yes or No\n")
 
         if confirmation.lower() == "yes":
-            os.chdir("C:/Users/HTPC/Downloads/Dragon Ball Z Season 4") #current working directory
+            os.chdir("Path") #current working directory
             file_name = os.getcwd()
 
             for files in natsorted(os.listdir(str(file_name))):
