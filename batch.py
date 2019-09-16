@@ -7,6 +7,7 @@ from natsort import natsorted
 def userPrompt():
 
     while True:
+        workingDirectory = input("What directory would you like to work in?\n")
         namePrompt = input("What would you like to name the file?\n")
         fileExtensionPrompt = input("What is the file extention?\n")
         startFileNumber = input("What number would you like to start at?\n")
@@ -19,14 +20,14 @@ def userPrompt():
         confirmation = input("Confirm if this is correct? Yes or No\n")
 
         if confirmation.lower() == "yes":
-            os.chdir("Path") #current working directory
+            os.chdir(workingDirectory.replace("\\","/")) #current working directory
             file_name = os.getcwd()
-
+            print(file_name)
             for files in natsorted(os.listdir(str(file_name))):
                 renamed_file = os.rename(files, namePrompt + str(file_number) + fileExtensionPrompt)
                 print(files + "-->" + namePrompt + str(file_number) + fileExtensionPrompt)
                 file_number += 1
-
+                print(files)
 
 if __name__ == '__main__':
     userPrompt()
